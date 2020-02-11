@@ -1,0 +1,11 @@
+.pip-feedback-dialog{
+  width: 80%;
+}
+
+pip-feedback-panel {
+    display: block;
+    position: relative;
+    height: calc(100% - 56px);
+    overflow-y: auto;
+    overflow-x: hidden;
+}

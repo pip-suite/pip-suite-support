@@ -1,0 +1,7 @@
+/.idea
+/node_modules
+/build
+/lib
+/temp
+npm-debug.log
+build.secret.js

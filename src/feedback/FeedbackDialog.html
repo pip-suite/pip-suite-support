@@ -1,0 +1,35 @@
+<md-dialog width="800" class="pip-feedback-dialog">
+    <md-dialog-content class="lp24-flex rp24-flex">
+        <pip-feedback-panel data="$ctrl.data" 
+                            pip-created="$ctrl.$panel = $control"
+                            show-pictures="$ctrl.showPictures"
+                            show-documents="$ctrl.showDocuments"
+                            save-callback="$ctrl.callback"
+                            type-collection="$ctrl.typeCollection"></pip-feedback-panel>
+    </md-dialog-content>
+    <md-dialog-actions class="layout-row">
+        <pip-content-switch class="show-gt-sm"></pip-content-switch>
+
+        <div class="flex"></div>
+
+        <div class="layout-row flex-fixed">
+            <md-button 
+                ng-show="$ctrl.transaction.busy()" 
+                ng-click="$ctrl.transaction.abort()" 
+                class="md-raised md-warn">
+                {{::'CANCEL' | translate}}
+            </md-button>
+            <md-button 
+                ng-hide="$ctrl.transaction.busy()" 
+                ng-click="$ctrl.goBack()">
+                {{::'CANCEL' | translate}}
+            </md-button>
+            <md-button class="md-accent rm8" 
+                ng-hide="$ctrl.transaction.busy()" 
+                ng-click="$ctrl.onSave()"
+                ng-disabled="$ctrl.data.content == '' && $ctrl.data.title == ''">
+                {{::'SEND' | translate}}
+            </md-button>
+        </div>
+    </md-dialog-actions>
+</md-dialog>
