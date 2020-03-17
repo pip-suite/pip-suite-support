@@ -512,7 +512,35 @@ try {
 }
 module.run(['$templateCache', function($templateCache) {
   $templateCache.put('feedback/Feedback.html',
-    '<md-toolbar class="pip-appbar-ext"></md-toolbar><pip-document width="800"><pip-feedback-panel data="$ctrl.data" pip-created="$ctrl.$panel = $control" show-pictures="$ctrl.showPictures" show-documents="$ctrl.showDocuments" save-callback="$ctrl.callback" type-collection="$ctrl.typeCollection"></pip-feedback-panel><div class="pip-footer"><pip-content-switch class="hide-xs"></pip-content-switch><div class="flex"></div><div class="flex-fixed layout-row"><md-button ng-show="$ctrl.transaction.busy()" ng-click="$ctrl.transaction.abort()" class="md-raised md-warn">{{::\'CANCEL\' | translate}}</md-button><md-button ng-hide="$ctrl.transaction.busy()" ng-click="$ctrl.goBack()">{{::\'CANCEL\' | translate}}</md-button><md-button class="md-accent" ng-hide="$ctrl.transaction.busy()" ng-click="$ctrl.onSave()" ng-disabled="$ctrl.data.content == \'\' && $ctrl.data.title == \'\'">{{::\'SEND\' | translate}}</md-button></div></div></pip-document>');
+    '<md-toolbar class="pip-appbar-ext"></md-toolbar>\n' +
+    '<pip-document width="800">\n' +
+    '\n' +
+    '    <pip-feedback-panel data="$ctrl.data" pip-created="$ctrl.$panel = $control"\n' +
+    '                        show-pictures="$ctrl.showPictures"\n' +
+    '                        show-documents="$ctrl.showDocuments"\n' +
+    '                        save-callback="$ctrl.callback"\n' +
+    '                        type-collection="$ctrl.typeCollection"></pip-feedback-panel>\n' +
+    '\n' +
+    '    <div class="pip-footer">\n' +
+    '        <pip-content-switch class="hide-xs" ></pip-content-switch>\n' +
+    '\n' +
+    '        <div class="flex"></div>\n' +
+    '\n' +
+    '        <div class="flex-fixed layout-row">\n' +
+    '            <md-button ng-show="$ctrl.transaction.busy()" ng-click="$ctrl.transaction.abort()" class="md-raised md-warn">\n' +
+    '                {{::\'CANCEL\' | translate}}\n' +
+    '            </md-button>\n' +
+    '            <md-button ng-hide="$ctrl.transaction.busy()" ng-click="$ctrl.goBack()">\n' +
+    '                {{::\'CANCEL\' | translate}}\n' +
+    '            </md-button>\n' +
+    '            <md-button class="md-accent" ng-hide="$ctrl.transaction.busy()" ng-click="$ctrl.onSave()"\n' +
+    '                       ng-disabled="$ctrl.data.content == \'\' && $ctrl.data.title == \'\'">\n' +
+    '                {{::\'SEND\' | translate}}\n' +
+    '            </md-button>\n' +
+    '        </div>\n' +
+    '    </div>\n' +
+    '</pip-document>\n' +
+    '');
 }]);
 })();
 
@@ -524,7 +552,42 @@ try {
 }
 module.run(['$templateCache', function($templateCache) {
   $templateCache.put('feedback/FeedbackDialog.html',
-    '<md-dialog width="800" class="pip-feedback-dialog"><md-dialog-content class="lp24-flex rp24-flex"><pip-feedback-panel data="$ctrl.data" pip-created="$ctrl.$panel = $control" show-pictures="$ctrl.showPictures" show-documents="$ctrl.showDocuments" save-callback="$ctrl.callback" type-collection="$ctrl.typeCollection"></pip-feedback-panel></md-dialog-content><md-dialog-actions class="layout-row"><pip-content-switch class="show-gt-sm"></pip-content-switch><div class="flex"></div><div class="layout-row flex-fixed"><md-button ng-show="$ctrl.transaction.busy()" ng-click="$ctrl.transaction.abort()" class="md-raised md-warn">{{::\'CANCEL\' | translate}}</md-button><md-button ng-hide="$ctrl.transaction.busy()" ng-click="$ctrl.goBack()">{{::\'CANCEL\' | translate}}</md-button><md-button class="md-accent rm8" ng-hide="$ctrl.transaction.busy()" ng-click="$ctrl.onSave()" ng-disabled="$ctrl.data.content == \'\' && $ctrl.data.title == \'\'">{{::\'SEND\' | translate}}</md-button></div></md-dialog-actions></md-dialog>');
+    '<md-dialog width="800" class="pip-feedback-dialog">\n' +
+    '    <md-dialog-content class="lp24-flex rp24-flex">\n' +
+    '        <pip-feedback-panel data="$ctrl.data" \n' +
+    '                            pip-created="$ctrl.$panel = $control"\n' +
+    '                            show-pictures="$ctrl.showPictures"\n' +
+    '                            show-documents="$ctrl.showDocuments"\n' +
+    '                            save-callback="$ctrl.callback"\n' +
+    '                            type-collection="$ctrl.typeCollection"></pip-feedback-panel>\n' +
+    '    </md-dialog-content>\n' +
+    '    <md-dialog-actions class="layout-row">\n' +
+    '        <pip-content-switch class="show-gt-sm"></pip-content-switch>\n' +
+    '\n' +
+    '        <div class="flex"></div>\n' +
+    '\n' +
+    '        <div class="layout-row flex-fixed">\n' +
+    '            <md-button \n' +
+    '                ng-show="$ctrl.transaction.busy()" \n' +
+    '                ng-click="$ctrl.transaction.abort()" \n' +
+    '                class="md-raised md-warn">\n' +
+    '                {{::\'CANCEL\' | translate}}\n' +
+    '            </md-button>\n' +
+    '            <md-button \n' +
+    '                ng-hide="$ctrl.transaction.busy()" \n' +
+    '                ng-click="$ctrl.goBack()">\n' +
+    '                {{::\'CANCEL\' | translate}}\n' +
+    '            </md-button>\n' +
+    '            <md-button class="md-accent rm8" \n' +
+    '                ng-hide="$ctrl.transaction.busy()" \n' +
+    '                ng-click="$ctrl.onSave()"\n' +
+    '                ng-disabled="$ctrl.data.content == \'\' && $ctrl.data.title == \'\'">\n' +
+    '                {{::\'SEND\' | translate}}\n' +
+    '            </md-button>\n' +
+    '        </div>\n' +
+    '    </md-dialog-actions>\n' +
+    '</md-dialog>\n' +
+    '');
 }]);
 })();
 
@@ -536,8 +599,173 @@ try {
 }
 module.run(['$templateCache', function($templateCache) {
   $templateCache.put('feedback/FeedbackPanel.html',
-    '<div class="pip-body tp24-flex"><div class="pip-content layout-column"><md-progress-linear ng-show="$ctrl.transaction.busy()" md-mode="indeterminate" class="pip-progress-ontop"></md-progress-linear><form name="form" novalidate=""><md-input-container class="md-block hide-gt-xs"><md-select ng-model="typeIndex" ng-disabled="$ctrl.transaction.busy()" aria-label="DROPDOWN"><md-option ng-repeat="action in $ctrl.typeCollection" value="{{ ::$index }}">{{ (action.title || action.name) | translate }}</md-option></md-select></md-input-container><pip-toggle-buttons ng-model="$ctrl.data.type" pip-buttons="$ctrl.typeCollection" class="bm16 hide-xs"></pip-toggle-buttons><p class="tm0 bm16 text-small text-grey line-height-string" ng-if="$ctrl.data.type == \'feedback\' || $ctrl.data.type == \'support\'">{{::\'FEEDBACK_HINT_FEEDBACK\' | translate}}</p><div ng-if="$ctrl.data.type == \'copyright\'"><p class="tm0 bm16 text-small text-grey line-height-string">{{::\'FEEDBACK_HINT_COPYRIGHT\' | translate}}</p><p class="tm0 bm16 text-small text-grey line-height-string">{{::\'FEEDBACK_HINT_COPYRIGHT2\' | translate }}</p></div><div class="pip-ref-item"><pip-avatar pip-party-id="$ctrl.$party.id" pip-party-name="$ctrl.$party.name" class="pip-pic pip-face"></pip-avatar><div class="pip-content"><p class="pip-title">{{$ctrl.$party.name}}</p><p class="pip-subtitle">{{$ctrl.$party.email}}</p></div></div><div ng-if="$ctrl.data.type!=\'copyright\'"><md-input-container class="md-block" md-no-float=""><input type="text" ng-model="$ctrl.data.title" ng-disabled="$ctrl.transaction.busy()" placeholder="{{:: \'SUBJECT\' | translate}}"></md-input-container><md-input-container class="md-block" md-no-float=""><textarea ng-model="$ctrl.data.content" ng-disabled="$ctrl.transaction.busy()" placeholder="{{::\'FEEDBACK_MESSAGE\'|translate}}">\n' +
-    '                        </textarea></md-input-container></div><div ng-if="$ctrl.data.type==\'copyright\'"><md-input-container class="md-block"><label>{{::\'FEEDBACK_COMPANY\'|translate}}</label> <input type="text" ng-model="$ctrl.data.company_name" ng-disabled="$ctrl.transaction.busy()" placeholder="Company Name"></md-input-container><md-input-container class="md-block"><label>{{::\'FEEDBACK_ADDRESS\'|translate}}</label> <input type="text" ng-model="$ctrl.data.company_addr" ng-disabled="$ctrl.transaction.busy()"></md-input-container><md-input-container class="md-block"><label>{{::\'FEEDBACK_COPYRIGHT_HOLDER\' | translate}}</label> <input name="$ctrl.data.copyright_holder" ng-model="$ctrl.data.copyright_holder" ng-disabled="$ctrl.transaction.busy()" step="any" type="text" tabindex="0" required=""><div ng-messages="$ctrl.errorsWithHint($ctrl.form.data.copyright_holder)"><div ng-message="hint">{{::\'FEEDBACK_COPYRIGHT_HOLDER_HINT\' | translate}}</div></div></md-input-container><md-input-container class="md-block flex"><label>{{::\'FEEDBACK_ORIGINAL_LOCATION\'|translate}}</label> <input type="text" ng-model="$ctrl.data.original_loc" ng-disabled="$ctrl.transaction.busy()"></md-input-container><md-input-container class="md-block"><label>{{::\'FEEDBACK_DESCRIBE_COPYRIGHTED\' | translate}}</label> <input name="$ctrl.data.copyrighted_work" ng-model="$ctrl.data.copyrighted_work" ng-disabled="$ctrl.transaction.busy()" step="any" type="text" tabindex="0" required=""><div ng-messages="$ctrl.errorsWithHint($ctrl.form.data.copyrighted_work)"><div ng-message="hint">{{::\'FEEDBACK_DESCRIBE_COPYRIGHTED_HINT\'| translate}}</div></div></md-input-container><md-input-container class="md-block"><label>{{::\'FEEDBACK_UNAUTHORIZE_LOCATION\' | translate}}</label> <textarea name="$ctrl.data.unauth_loc" ng-model="$ctrl.data.unauth_loc" ng-disabled="$ctrl.transaction.busy()" step="any" type="text" tabindex="0" required=""></textarea><div ng-messages="$ctrl.errorsWithHint(form.data.unauth_loc)"><div ng-message="hint">{{::\'FEEDBACK_UNAUTHORIZE_LOCATION_HINT\' | translate}}</div></div></md-input-container><div class="bm16 layout-row"><md-checkbox ng-model="$ctrl.data.copyright_conc" class="lm0 bm0 flex-fixed" aria-label="FEEDBACK_COPYRIGHT_CONC" style="min-width: 24px; margin-top: -2px"></md-checkbox><p class="m0 text-small text-grey line-height-string">{{::\'FEEDBACK_COPYRIGHT_CONC\'|translate}}</p></div><div class="bm16 layout-row"><md-checkbox ng-model="$ctrl.data.request_conc" class="lm0 bm0 flex-fixed" aria-label="FEEDBACK_REGUEST_CONC" style="min-width: 24px; margin-top: -2px"></md-checkbox><p class="m0 text-small text-grey line-height-string">{{::\'FEEDBACK_REGUEST_CONC\'|translate}}</p></div><md-input-container class="md-block"><label>{{::\'FEEDBACK_SIGNATURE\' | translate}}</label> <input name="$ctrl.data.signature" ng-model="$ctrl.data.signature" ng-disabled="$ctrl.transaction.busy()" step="any" type="text" tabindex="0" required=""><div ng-messages="$ctrl.errorsWithHint($ctrl.form.data.signature)"><div ng-message="hint">{{::\'FEEDBACK_SIGNATURE_HINT\' | translate}}</div></div></md-input-container></div><pip-picture-list-edit class="bm8" ng-show="$ctrl.showPictures" pip-picture-ids="$ctrl.data.pic_ids" pip-created="$ctrl.pictures = $event.sender" ng-disabled="$ctrl.transaction.busy()"></pip-picture-list-edit><pip-document-list-edit ng-show="$ctrl.showDocuments" pip-documents="$ctrl.data.docs" pip-created="$ctrl.docs = $event.sender" ng-disabled="$ctrl.transaction.busy()"></pip-document-list-edit></form></div></div>');
+    '<div class="pip-body tp24-flex">\n' +
+    '    <div class="pip-content layout-column">\n' +
+    '        <md-progress-linear ng-show="$ctrl.transaction.busy()" md-mode="indeterminate"\n' +
+    '                            class="pip-progress-ontop"></md-progress-linear>\n' +
+    '\n' +
+    '        <form name="form" novalidate>\n' +
+    '            <md-input-container class="md-block hide-gt-xs">\n' +
+    '                <md-select ng-model="typeIndex" ng-disabled="$ctrl.transaction.busy()" aria-label="DROPDOWN">\n' +
+    '\n' +
+    '                    <md-option ng-repeat="action in $ctrl.typeCollection" value="{{ ::$index }}">\n' +
+    '                        {{ (action.title || action.name) | translate }}\n' +
+    '                    </md-option>\n' +
+    '                </md-select>\n' +
+    '            </md-input-container>\n' +
+    '\n' +
+    '            <pip-toggle-buttons ng-model="$ctrl.data.type"\n' +
+    '                                pip-buttons="$ctrl.typeCollection"\n' +
+    '                                class="bm16 hide-xs">\n' +
+    '            </pip-toggle-buttons>\n' +
+    '            <p class="tm0 bm16 text-small text-grey line-height-string"\n' +
+    '               ng-if="$ctrl.data.type == \'feedback\' || $ctrl.data.type == \'support\'">\n' +
+    '                {{::\'FEEDBACK_HINT_FEEDBACK\' | translate}}\n' +
+    '            </p>\n' +
+    '\n' +
+    '            <div ng-if="$ctrl.data.type == \'copyright\'">\n' +
+    '                <p class="tm0 bm16 text-small text-grey line-height-string">\n' +
+    '                    {{::\'FEEDBACK_HINT_COPYRIGHT\' | translate}}\n' +
+    '                </p>\n' +
+    '\n' +
+    '                <p class="tm0 bm16 text-small text-grey line-height-string">\n' +
+    '                    {{::\'FEEDBACK_HINT_COPYRIGHT2\' | translate }}\n' +
+    '                </p>\n' +
+    '            </div>\n' +
+    '\n' +
+    '            <div class="pip-ref-item">\n' +
+    '                <pip-avatar pip-party-id="$ctrl.$party.id"\n' +
+    '                            pip-party-name="$ctrl.$party.name"\n' +
+    '                            class="pip-pic pip-face"></pip-avatar>\n' +
+    '                <div class="pip-content">\n' +
+    '                    <p class="pip-title">{{$ctrl.$party.name}} </p>\n' +
+    '\n' +
+    '                    <p class="pip-subtitle">{{$ctrl.$party.email}}</p>\n' +
+    '                </div>\n' +
+    '            </div>\n' +
+    '\n' +
+    '            <div ng-if="$ctrl.data.type!=\'copyright\'">\n' +
+    '                <md-input-container class="md-block" md-no-float>\n' +
+    '                    <input type="text" ng-model="$ctrl.data.title"\n' +
+    '                           ng-disabled="$ctrl.transaction.busy()"\n' +
+    '                           placeholder="{{:: \'SUBJECT\' | translate}}"/>\n' +
+    '                </md-input-container>\n' +
+    '                <md-input-container class="md-block" md-no-float>\n' +
+    '                        <textarea ng-model="$ctrl.data.content" ng-disabled="$ctrl.transaction.busy()"\n' +
+    '                                  placeholder="{{::\'FEEDBACK_MESSAGE\'|translate}}">\n' +
+    '                        </textarea>\n' +
+    '                </md-input-container>\n' +
+    '            </div>\n' +
+    '\n' +
+    '            <div ng-if="$ctrl.data.type==\'copyright\'">\n' +
+    '                <md-input-container class="md-block">\n' +
+    '                    <label>{{::\'FEEDBACK_COMPANY\'|translate}}</label>\n' +
+    '                    <input type="text" ng-model="$ctrl.data.company_name"\n' +
+    '                           ng-disabled="$ctrl.transaction.busy()" placeholder="Company Name"/>\n' +
+    '                </md-input-container>\n' +
+    '\n' +
+    '                <md-input-container class="md-block">\n' +
+    '                    <label>{{::\'FEEDBACK_ADDRESS\'|translate}}</label>\n' +
+    '                    <input type="text" ng-model="$ctrl.data.company_addr"\n' +
+    '                           ng-disabled="$ctrl.transaction.busy()"/>\n' +
+    '                </md-input-container>\n' +
+    '\n' +
+    '                <md-input-container class="md-block">\n' +
+    '                    <label>{{::\'FEEDBACK_COPYRIGHT_HOLDER\' | translate}}</label>\n' +
+    '                    <input name="$ctrl.data.copyright_holder" \n' +
+    '                           ng-model="$ctrl.data.copyright_holder"\n' +
+    '                           ng-disabled="$ctrl.transaction.busy()"\n' +
+    '                           step="any" type="text" tabindex="0"\n' +
+    '                           required/>\n' +
+    '\n' +
+    '                    <div ng-messages="$ctrl.errorsWithHint($ctrl.form.data.copyright_holder)">\n' +
+    '                        <div ng-message="hint">\n' +
+    '                            {{::\'FEEDBACK_COPYRIGHT_HOLDER_HINT\' | translate}}\n' +
+    '                        </div>\n' +
+    '                    </div>\n' +
+    '                </md-input-container>\n' +
+    '\n' +
+    '                <md-input-container class="md-block flex">\n' +
+    '                    <label>{{::\'FEEDBACK_ORIGINAL_LOCATION\'|translate}}</label>\n' +
+    '                    <input type="text" ng-model="$ctrl.data.original_loc"\n' +
+    '                           ng-disabled="$ctrl.transaction.busy()"/>\n' +
+    '                </md-input-container>\n' +
+    '\n' +
+    '                <md-input-container class="md-block">\n' +
+    '                    <label>{{::\'FEEDBACK_DESCRIBE_COPYRIGHTED\' | translate}}</label>\n' +
+    '                    <input name="$ctrl.data.copyrighted_work" ng-model="$ctrl.data.copyrighted_work"\n' +
+    '                           ng-disabled="$ctrl.transaction.busy()"\n' +
+    '                           step="any" type="text" tabindex="0"\n' +
+    '                           required/>\n' +
+    '\n' +
+    '                    <div ng-messages="$ctrl.errorsWithHint($ctrl.form.data.copyrighted_work)">\n' +
+    '                        <div ng-message="hint">\n' +
+    '                            {{::\'FEEDBACK_DESCRIBE_COPYRIGHTED_HINT\'| translate}}\n' +
+    '                        </div>\n' +
+    '                    </div>\n' +
+    '                </md-input-container>\n' +
+    '\n' +
+    '                <md-input-container class="md-block">\n' +
+    '                    <label>{{::\'FEEDBACK_UNAUTHORIZE_LOCATION\' | translate}}</label>\n' +
+    '                        <textarea name="$ctrl.data.unauth_loc" ng-model="$ctrl.data.unauth_loc"\n' +
+    '                                  ng-disabled="$ctrl.transaction.busy()"\n' +
+    '                                  step="any" type="text" tabindex="0"\n' +
+    '                                  required></textarea>\n' +
+    '\n' +
+    '                    <div ng-messages="$ctrl.errorsWithHint(form.data.unauth_loc)">\n' +
+    '                        <div ng-message="hint">\n' +
+    '                            {{::\'FEEDBACK_UNAUTHORIZE_LOCATION_HINT\' | translate}}\n' +
+    '                        </div>\n' +
+    '                    </div>\n' +
+    '                </md-input-container>\n' +
+    '\n' +
+    '                <div class="bm16 layout-row">\n' +
+    '                    <md-checkbox ng-model="$ctrl.data.copyright_conc" class="lm0 bm0 flex-fixed"\n' +
+    '                                 aria-label=\'FEEDBACK_COPYRIGHT_CONC\' style="min-width: 24px; margin-top: -2px">\n' +
+    '                    </md-checkbox>\n' +
+    '                    <p class="m0 text-small text-grey line-height-string">\n' +
+    '                        {{::\'FEEDBACK_COPYRIGHT_CONC\'|translate}}\n' +
+    '                    </p>\n' +
+    '                </div>\n' +
+    '\n' +
+    '                <div class="bm16 layout-row">\n' +
+    '                    <md-checkbox ng-model="$ctrl.data.request_conc" class="lm0 bm0 flex-fixed"\n' +
+    '                                 aria-label="FEEDBACK_REGUEST_CONC" style="min-width: 24px; margin-top: -2px">\n' +
+    '                    </md-checkbox>\n' +
+    '                    <p class="m0 text-small text-grey line-height-string">\n' +
+    '                        {{::\'FEEDBACK_REGUEST_CONC\'|translate}}\n' +
+    '                    </p>\n' +
+    '                </div>\n' +
+    '\n' +
+    '                <md-input-container class="md-block">\n' +
+    '                    <label>{{::\'FEEDBACK_SIGNATURE\' | translate}}</label>\n' +
+    '                    <input name="$ctrl.data.signature" \n' +
+    '                           ng-model="$ctrl.data.signature"\n' +
+    '                           ng-disabled="$ctrl.transaction.busy()"\n' +
+    '                           step="any" type="text" tabindex="0"\n' +
+    '                           required/>\n' +
+    '\n' +
+    '                    <div ng-messages="$ctrl.errorsWithHint($ctrl.form.data.signature)">\n' +
+    '                        <div ng-message="hint">{{::\'FEEDBACK_SIGNATURE_HINT\' | translate}}</div>\n' +
+    '                    </div>\n' +
+    '                </md-input-container>\n' +
+    '            </div>\n' +
+    '\n' +
+    '            <pip-picture-list-edit class="bm8" ng-show="$ctrl.showPictures"\n' +
+    '                                   pip-picture-ids="$ctrl.data.pic_ids" \n' +
+    '                                   pip-created="$ctrl.pictures = $event.sender"\n' +
+    '                                   ng-disabled="$ctrl.transaction.busy()">\n' +
+    '            </pip-picture-list-edit>\n' +
+    '\n' +
+    '            <pip-document-list-edit ng-show="$ctrl.showDocuments"\n' +
+    '                                    pip-documents="$ctrl.data.docs" \n' +
+    '                                    pip-created="$ctrl.docs = $event.sender"\n' +
+    '                                    ng-disabled="$ctrl.transaction.busy()">\n' +
+    '            </pip-document-list-edit>\n' +
+    '        </form>\n' +
+    '    </div>\n' +
+    '</div>\n' +
+    '');
 }]);
 })();
 
